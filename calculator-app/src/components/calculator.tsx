@@ -43,7 +43,11 @@ const Calculator = ()=>{
         setOperator("");
 
     }
-
+   const handleClear = () =>{
+    setCurrent("0");
+    setPrevious("");
+    setOperator("");
+   }
 
 
 
@@ -52,7 +56,7 @@ const Calculator = ()=>{
         <div className="w-full h-screen flex items-center justify-center bg-slate-950 ml-auto mr-auto">
             <div className="grid grid-cols-4  bg-gray-800p-4 rounded-2xl shadow-lg">
                <div className="col-span-4 bg-gray-500 text-white text-right text-3xl p-4 ">{current}</div>
-               <button className="btn" onClick={() => handleButtonClick("0")}>AC</button>
+               <button className="btn" onClick={handleClear}>AC</button>
                <button className="btn" onClick={() => handleButtonClick("+/-")}>+/-</button>
                <button className="btn" onClick={() => handleButtonClick("%")}>%</button>
                <button className="btn-operator" onClick={() => handleOperatorClick("÷")}>÷</button>
