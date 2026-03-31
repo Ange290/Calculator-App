@@ -2,8 +2,8 @@
 
 
 .btn {
-  @apply bg-white text-black text-xl p-4  hover:bg-gray-300
+  @apply bg-white text-black text-xl p-4  hover:bg-gray-300  border-[1px] border-gray-500
 }
 .btn-operator {
-  @apply bg-orange-500 text-white hover:bg-orange-600 text-xl p-4 
+  @apply bg-orange-500 text-white hover:bg-orange-600 text-xl p-4 border-[1px] border-gray-500
 }
