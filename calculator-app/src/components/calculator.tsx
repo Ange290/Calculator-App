@@ -1,6 +1,6 @@
 import { useState } from "react";
 const Calculator = ()=>{
-    const [current, setCurrent] = useState("0");
+    const [current, setCurrent] = useState("");
     const [previous, setPrevious] = useState("");
     const [operator, setOperator] = useState("");
     
@@ -13,9 +13,10 @@ const Calculator = ()=>{
 
     }
     const handleOperatorClick = (op: string) =>{
+        if(current === "") return;
         setOperator(op);
         setPrevious(current);
-        setCurrent("0");
+        setCurrent("");
     }
     
     const calculate = () =>{
@@ -44,7 +45,7 @@ const Calculator = ()=>{
 
     }
    const handleClear = () =>{
-    setCurrent("0");
+    setCurrent("");
     setPrevious("");
     setOperator("");
    }
@@ -55,7 +56,7 @@ const Calculator = ()=>{
     return (
         <div className="w-full h-screen flex items-center justify-center bg-slate-950 ml-auto mr-auto">
             <div className="grid grid-cols-4  bg-gray-800p-4 rounded-2xl shadow-lg">
-               <div className="col-span-4 bg-gray-500 text-white text-right text-3xl p-4 ">{current}</div>
+               <div className="col-span-4 bg-gray-500 text-white text-right text-3xl p-4 ">{current === "" ? "0" : current }</div>
                <button className="btn" onClick={handleClear}>AC</button>
                <button className="btn" onClick={() => handleButtonClick("+/-")}>+/-</button>
                <button className="btn" onClick={() => handleButtonClick("%")}>%</button>
