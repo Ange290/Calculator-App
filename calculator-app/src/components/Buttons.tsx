@@ -1,4 +1,4 @@
-
+import '../App.css';
 
 type ButtonType = {
     label: string;
@@ -33,7 +33,6 @@ const buttons : ButtonType[] = [
     {label:"0", type:"number", span: 2},
     {label:".", type:"number"},
     {label:"=", type:"operator"}
-
 ];
 
 const Buttons =({onNumber, onOperator, onEqual, onClear, onPercentage}: ButtonProps) => {   
@@ -48,6 +47,10 @@ const HandleClick = (btn: ButtonType) =>{
         return onOperator(btn.label);
     };
 }
+
+const baseButtonClass = "bg-gray-200 text-black text-xl p-4 hover:bg-gray-300 border border-gray-500 cursor-pointer rounded";
+const operatorButtonClass = "bg-orange-500 text-white text-xl p-4 hover:bg-orange-600 border border-gray-500 cursor-pointer rounded";
+
   return (
         <> 
             {buttons.map((btn, index) => (
@@ -55,14 +58,13 @@ const HandleClick = (btn: ButtonType) =>{
                     key={index}
                     type="button"
                     onClick={() => HandleClick(btn)}
-                    className={`${btn.type} === "operator" ? "btn-operator" : "btn"} ${btn.span ===2 ? "col-span-2" : ""}`}
+                    className={`${btn.type === "operator" ? operatorButtonClass : baseButtonClass} ${btn.span === 2 ? "col-span-2" : ""}`}
                 >
                     {btn.label}
                 </button>
             ))}
         </>
     );
-
 }
 
 export default Buttons;
