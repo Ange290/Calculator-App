@@ -18,7 +18,18 @@ const Calculator = ()=>{
         setPrevious(current);
         setCurrent("");
     }
-    
+    const handlePercentage =()=>{
+        const curr = parseFloat(current);
+        const prev = parseFloat(previous);
+        if(operator === "+" || operator === "-"){
+            setCurrent((prev * curr / 100).toString());
+        }else if(operator === "x" || operator === "÷"){
+            setCurrent((curr / 100).toString());
+        }else{
+            setCurrent((curr / 100).toString());
+        }
+    }
+
     const calculate = () =>{
         const prev = parseFloat(previous);
         const curr = parseFloat(current);
@@ -56,10 +67,10 @@ const Calculator = ()=>{
     return (
         <div className="w-full h-screen flex items-center justify-center bg-slate-950 ml-auto mr-auto">
             <div className="grid grid-cols-4  bg-gray-800p-4 rounded-2xl shadow-lg">
-               <div className="col-span-4 bg-gray-500 text-white text-right text-3xl p-4 ">{current === "" ? "0" : current }</div>
+               <div className="col-span-4 bg-gray-500 text-white text-right text-3xl p-4 ">{current || previous || 0}</div>
                <button className="btn" onClick={handleClear}>AC</button>
                <button className="btn" onClick={() => handleButtonClick("+/-")}>+/-</button>
-               <button className="btn" onClick={() => handleButtonClick("%")}>%</button>
+               <button className="btn" onClick={() => handlePercentage()}>%</button>
                <button className="btn-operator" onClick={() => handleOperatorClick("÷")}>÷</button>
 
                <button className="btn" onClick={() => handleButtonClick("7")}>7</button>
