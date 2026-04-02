@@ -11,6 +11,7 @@ type ButtonType = {
     onEqual : () => void;
     onClear : () => void;
     onPercentage : () => void;
+    onToggleSign  : ()=> void;
 }
  
 const buttons : ButtonType[] = [
@@ -35,17 +36,19 @@ const buttons : ButtonType[] = [
     {label:"=", type:"operator"}
 ];
 
-const Buttons =({onNumber, onOperator, onEqual, onClear, onPercentage}: ButtonProps) => {   
+const Buttons =({onNumber, onOperator, onEqual, onClear, onPercentage, onToggleSign}: ButtonProps) => {   
 const HandleClick = (btn: ButtonType) =>{
     if(btn.type === "number"){
         return onNumber(btn.label);
     }
     if(btn.label === "AC") return onClear();
+    if(btn.label === "+/-") return onToggleSign();
     if(btn.label === "%") return onPercentage();
     if(btn.label === "=") return onEqual();
     if(btn.type === "operator"){
         return onOperator(btn.label);
     };
+    
 }
 
 // const baseButtonClass = "bg-gray-200 text-black text-xl p-4 hover:bg-gray-300 border border-gray-500";

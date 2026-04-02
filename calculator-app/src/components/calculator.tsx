@@ -57,6 +57,11 @@ const operatorMap : {[key: string]: (a: number, b: number) => number} = {
    }
 
 
+ const handleToggle = ()=>{
+    if(!current) return;
+        setCurrent((parseFloat(current) * -1).toString());
+    
+ }
 
 
     return (
@@ -69,6 +74,7 @@ const operatorMap : {[key: string]: (a: number, b: number) => number} = {
                 onEqual={calculate}
                 onClear={handleClear}
                 onPercentage={handlePercentage}
+                onToggleSign={handleToggle}
                />
             </div>
         </div>
