@@ -30,27 +30,19 @@ const Calculator = ()=>{
         }
     }
 
+const operatorMap : {[key: string]: (a: number, b: number) => number} = {
+    "+": (a,b) => a +b ,
+    "-" : (a, b) => a- b,
+    "x": (a, b) => a * b,
+    "÷": (a, b) => a / b
+}
+
     const calculate = () =>{
         const prev = parseFloat(previous);
         const curr = parseFloat(current);
-        let result = 0;
-        switch(operator){
-            case "+":
-                result = prev + curr;
-                break;
-            case "-":
-                result = prev - curr;
-                break;
-            case "x":
-                result = prev * curr;
-                break;
-            case "÷":
-                result = prev / curr;
-                break;
-            default:
-                return;
-        }
-        setCurrent(result.toString());
+      
+        
+        setCurrent(operatorMap[operator](prev, curr).toString());
         setPrevious("");
         setOperator("");
 
@@ -69,7 +61,7 @@ const Calculator = ()=>{
             <div className="grid grid-cols-4  bg-gray-800p-4 rounded-2xl shadow-lg">
                <div className="col-span-4 bg-gray-500 text-white text-right text-3xl p-4 ">{current || previous || 0}</div>
                <button className="btn" onClick={handleClear}>AC</button>
-               <button className="btn" onClick={() => handleButtonClick("+/-")}>+/-</button>
+               <button className="btn" onClick={() => handleOperatorClick("+/-")}>+/-</button>
                <button className="btn" onClick={() => handlePercentage()}>%</button>
                <button className="btn-operator" onClick={() => handleOperatorClick("÷")}>÷</button>
 
