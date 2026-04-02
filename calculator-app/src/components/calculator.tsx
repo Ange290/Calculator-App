@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Buttons from "./buttons";
+import '../App.css'
 const Calculator = ()=>{
     const [current, setCurrent] = useState("");
     const [previous, setPrevious] = useState("");
@@ -59,8 +60,8 @@ const operatorMap : {[key: string]: (a: number, b: number) => number} = {
 
 
     return (
-        <div className="w-full h-screen flex items-center justify-center bg-slate-950 ml-auto mr-auto">
-            <div className="grid grid-cols-4  bg-gray-800 p-4 rounded-2xl shadow-lg">
+        <div className="w-full h-screen flex items-center justify-center bg-slate-950">
+            <div className="grid grid-cols-4  ">
                <div className="col-span-4 bg-gray-500 text-white text-right text-3xl p-4 ">{current || previous || 0}</div>
                <Buttons
                 onNumber={handleButtonClick}

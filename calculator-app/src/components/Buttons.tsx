@@ -48,8 +48,8 @@ const HandleClick = (btn: ButtonType) =>{
     };
 }
 
-const baseButtonClass = "bg-gray-200 text-black text-xl p-4 hover:bg-gray-300 border border-gray-500 cursor-pointer rounded";
-const operatorButtonClass = "bg-orange-500 text-white text-xl p-4 hover:bg-orange-600 border border-gray-500 cursor-pointer rounded";
+// const baseButtonClass = "bg-gray-200 text-black text-xl p-4 hover:bg-gray-300 border border-gray-500";
+// const operatorButtonClass = "bg-orange-500 text-white text-xl p-4 hover:bg-orange-600 border border-gray-500";
 
   return (
         <> 
@@ -58,7 +58,7 @@ const operatorButtonClass = "bg-orange-500 text-white text-xl p-4 hover:bg-orang
                     key={index}
                     type="button"
                     onClick={() => HandleClick(btn)}
-                    className={`${btn.type === "operator" ? operatorButtonClass : baseButtonClass} ${btn.span === 2 ? "col-span-2" : ""}`}
+                    className={`${btn.type === "operator" ? "btn-operator" : "btn"} ${btn.span === 2 ? "col-span-2" : ""}`}
                 >
                     {btn.label}
                 </button>

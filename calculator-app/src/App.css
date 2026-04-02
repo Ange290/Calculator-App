@@ -1,4 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@source "../src/**/*.{ts,tsx}";
 
+.btn {
+  @apply bg-white text-black text-xl p-4 hover:bg-gray-300 border border-gray-500;
+}
+
+.btn-operator {
+  @apply bg-orange-500 text-white text-xl p-4 hover:bg-orange-600 border border-gray-500;
+}
