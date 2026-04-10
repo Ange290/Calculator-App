@@ -51,8 +51,6 @@ const HandleClick = (btn: ButtonType) =>{
     
 }
 
-// const baseButtonClass = "bg-gray-200 text-black text-xl p-4 hover:bg-gray-300 border border-gray-500";
-// const operatorButtonClass = "bg-orange-500 text-white text-xl p-4 hover:bg-orange-600 border border-gray-500";
 
   return (
         <> 
