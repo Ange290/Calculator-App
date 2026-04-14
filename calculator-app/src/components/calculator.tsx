@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Buttons from "./buttons";
+import Buttons from "./Buttons";
 import '../App.css'
 const Calculator = ()=>{
     const [current, setCurrent] = useState("");

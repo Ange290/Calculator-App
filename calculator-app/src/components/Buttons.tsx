@@ -54,9 +54,9 @@ const handleClick = (btn: ButtonType) =>{
 
   return (
         <> 
-            {buttons.map((btn, index) => (
+            {buttons.map((btn) => (
                 <button
-                    key={index}
+                    key={btn.label}
                     type="button"
                     onClick={() => handleClick(btn)}
                     className={`${btn.type === "operator" ? "btn-operator" : "btn"} ${btn.span === 2 ? "col-span-2" : ""}`}
