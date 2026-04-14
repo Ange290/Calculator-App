@@ -37,7 +37,7 @@ const buttons : ButtonType[] = [
 ];
 
 const Buttons =({onNumber, onOperator, onEqual, onClear, onPercentage, onToggleSign}: ButtonProps) => {   
-const HandleClick = (btn: ButtonType) =>{
+const handleClick = (btn: ButtonType) =>{
     if(btn.type === "number"){
         return onNumber(btn.label);
     }
@@ -58,7 +58,7 @@ const HandleClick = (btn: ButtonType) =>{
                 <button
                     key={index}
                     type="button"
-                    onClick={() => HandleClick(btn)}
+                    onClick={() => handleClick(btn)}
                     className={`${btn.type === "operator" ? "btn-operator" : "btn"} ${btn.span === 2 ? "col-span-2" : ""}`}
                 >
                     {btn.label}
